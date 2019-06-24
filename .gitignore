@@ -1,0 +1,60 @@
+### https://raw.github.com/github/gitignore/f57304e9762876ae4c9b02867ed0cb887316387e/C++.gitignore
+
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+
+
+### ignored files in my environment ###
+
+# Ignore other unneeded files.
+*.swp
+.project
+.DS_Store
+.idea
+.secret
+
+# Ignore Emacs' temp files.
+\#*\#
+.\#*
+*~
+._*
+*_flymake.*
+
+# Ignore given input/output files in contests.
+*.in
+*.out
+
+# Ignore VSCode LaTeX Workshop's temp file.
+__latexindent_temp.tex
+.vscode/*
