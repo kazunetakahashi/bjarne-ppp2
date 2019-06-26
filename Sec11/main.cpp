@@ -1,7 +1,6 @@
 #include "Punct_stream.h"
 #include <fstream>
 #include <set>
-#include <algorithm>
 
 const string s_in = "neverland_in.txt";
 const string s_out = "neverland_out.txt";
