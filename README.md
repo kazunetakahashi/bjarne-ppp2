@@ -16,7 +16,7 @@ Section 12-16 は GUI 環境整えるのに結構苦労しました。
 #### インストール
 
 ```
-brew install fltk
+$ brew install fltk
 ```
 
 #### コンパイルに必要なオプション
@@ -32,9 +32,24 @@ $ fltk-config --ldflags
 
 #### コンパイル例
 
+全部一気にコンパイルする場合は以下のようになる。
+
 ```
-g++-9 -std=c++14 -I/usr/local/Cellar/fltk/1.3.5/include -L/usr/local/Cellar/fltk/1.3.5/lib -lfltk -lfltk_images -lpthread -framework Cocoa -o ./a.out Graph.cpp GUI.cpp Simple_window.cpp Window.cpp sample.cpp
+$ g++-9 -std=c++14 -I/usr/local/Cellar/fltk/1.3.5/include -L/usr/local/Cellar/fltk/1.3.5/lib -lfltk -lfltk_images -lpthread -framework Cocoa -o ./a.out Graph.cpp GUI.cpp Simple_window.cpp Window.cpp sample.cpp
 ```
+
+オブジェクトコードを生成してからリンカで実行プログラムを作成する場合は以下のようになる。
+
+```
+$ g++-9 -std=c++14 -I/usr/local/Cellar/fltk/1.3.5/include -c -o sample.o sample.cpp
+$ g++-9 -L/usr/local/Cellar/fltk/1.3.5/lib -lfltk -lfltk_images -lpthread -framework Cocoa Graph.o GUI.o Simple_window.o Window.o sample.o
+```
+
+この場合は変更がないコードのコンパイルの時間が節約できる。
+
+## その他のソース
+
+`Sec11/neverland_in.txt` の文章は [The Promised Neverland - Wikipedia](https://en.wikipedia.org/wiki/The_Promised_Neverland) からとりました。
 
 ## 謝辞
 
