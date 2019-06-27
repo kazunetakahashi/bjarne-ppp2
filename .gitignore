@@ -3,15 +3,6 @@ std_lib_facilities.h
 
 # https://github.com/MackSix/ppp-stroustrup
 Sec12-16/fltk.h
-Sec12-16/Graph.cpp
-Sec12-16/Graph.h
-Sec12-16/GUI.cpp
-Sec12-16/GUI.h
-Sec12-16/Point.h
-Sec12-16/Simple_window.cpp
-Sec12-16/Simple_window.h
-Sec12-16/Window.cpp
-Sec12-16/Window.h
 
 ### https://raw.github.com/github/gitignore/f57304e9762876ae4c9b02867ed0cb887316387e/C++.gitignore
 
