@@ -49,7 +49,8 @@ $ g++-9 -L/usr/local/Cellar/fltk/1.3.5/lib -lfltk -lfltk_images -lpthread -frame
 
 ## その他のソース
 
-`Sec11/neverland_in.txt` の文章は [The Promised Neverland - Wikipedia](https://en.wikipedia.org/wiki/The_Promised_Neverland) からとりました。
+- `Sec11/neverland_in.txt` の文章は [The Promised Neverland - Wikipedia](https://en.wikipedia.org/wiki/The_Promised_Neverland) からとりました。
+- `Sec12-16/vegetable_wings.jpg` は大学入試センター試験 2019 年度 英語(リスニング)からとりました。
 
 ## 謝辞
 
