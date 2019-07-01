@@ -147,6 +147,8 @@ void vector<T, A>::reserve(int newalloc)
   std::swap<vector_base<T, A>>(*this, b);
 }
 
+// a solution for https://atcoder.jp/contests/abc130/tasks/abc130_b
+
 int main()
 {
   int N, X;
