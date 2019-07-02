@@ -2,6 +2,8 @@
 #include <algorithm>
 #include <memory>
 
+namespace My_vector
+{
 template <typename T, typename A>
 struct vector_base
 {
@@ -30,13 +32,27 @@ vector_base<T, A>::vector_base(vector_base &&b) : alloc{b.alloc}, elem{b.elem}, 
 template <typename T, typename A>
 vector_base<T, A> &vector_base<T, A>::operator=(vector_base &&b)
 {
-  alloc = b.alloc;
-  elem = b.elem;
-  sz = b.sz;
-  space = b.space;
-  b.elem = nullptr;
-  b.sz = b.space = 0;
+  swap(*this, b);
   return *this;
+}
+
+template <typename T, typename A>
+void swap(vector_base<T, A> &x, vector_base<T, A> &y)
+{
+  vector_base<T, A> tmp{x.alloc, 0};
+  tmp.elem = x.elem;
+  tmp.sz = x.sz;
+  tmp.space = x.space;
+  x.alloc = y.alloc;
+  x.elem = y.elem;
+  x.sz = y.sz;
+  x.space = y.space;
+  y.alloc = tmp.alloc;
+  y.elem = tmp.elem;
+  y.sz = y.sz;
+  y.space = y.space;
+  tmp.elem = nullptr;
+  tmp.sz = tmp.space = 0;
 }
 
 template <typename T, typename A = std::allocator<T>>
@@ -80,20 +96,20 @@ template <typename T, typename A>
 vector<T, A> &vector<T, A>::operator=(const vector &v)
 {
   vector tmp{v};
-  std::swap<vector_base<T, A>>(*this, tmp);
+  swap(*this, tmp);
   return *this;
 }
 
 template <typename T, typename A>
 vector<T, A>::vector(vector &&v)
 {
-  std::swap<vector_base<T, A>>(*this, v);
+  swap(*this, v);
 }
 
 template <typename T, typename A>
 vector<T, A> &vector<T, A>::operator=(vector &&v)
 {
-  std::swap<vector_base<T, A>>(*this, v);
+  swap(*this, v);
   return *this;
 }
 
@@ -144,8 +160,9 @@ void vector<T, A>::reserve(int newalloc)
   {
     this->alloc.destroy(this->elem + i);
   }
-  std::swap<vector_base<T, A>>(*this, b);
+  swap(*this, b);
 }
+} // namespace My_vector
 
 // a solution for https://atcoder.jp/contests/abc130/tasks/abc130_b
 
@@ -153,14 +170,14 @@ int main()
 {
   int N, X;
   std::cin >> N >> X;
-  vector<int> L;
+  My_vector::vector<int> L;
   for (auto i = 0; i < N; i++)
   {
     int l;
     std::cin >> l;
     L.push_back(l);
   }
-  vector<int> D;
+  My_vector::vector<int> D;
   for (auto i = 0; i <= N; i++)
   {
     int sum = 0;
