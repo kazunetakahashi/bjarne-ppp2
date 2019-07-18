@@ -12,7 +12,7 @@ struct vector_base
   T *elem;
   unsigned long sz;
   unsigned long space;
-  vector_base(const A &a, unsigned long n = 0) : alloc{a}, elem{alloc.allocate(n)}, sz{0u}, space{n} {}
+  vector_base(const A &a, unsigned long n = 0) : alloc{a}, elem{alloc.allocate(n)}, sz{n}, space{n} {}
   vector_base(const vector_base &) = delete;
   vector_base &operator=(const vector_base &) = delete;
   vector_base(vector_base &&);
